@@ -1,7 +1,11 @@
-import * as fs from "fs";
+// import * as fs from "fs";
+
+// deno
+import { readTxtFileToString } from "../../modules/index.ts";
 
 const fileName: string = "input-1.txt";
-const fileString: string = fs.readFileSync(fileName).toString("utf8");
+// const fileString: string = fs.readFileSync(fileName).toString("utf8");
+const fileString: string = readTxtFileToString(fileName);
 
 let currFloor: number = 0;
 

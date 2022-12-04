@@ -1,4 +1,4 @@
-import { readTxtFileToArr } from "../../modules";
+import { readTxtFileToArr } from "../../modules/index.ts";
 const stringsArr: string[] = readTxtFileToArr("input.txt");
 console.log(stringsArr[stringsArr.length - 1]);
 // A nice string is one with all of the following properties:

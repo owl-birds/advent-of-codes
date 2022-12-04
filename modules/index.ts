@@ -1,1 +1,1 @@
-export { readTxtFileToArr, readTxtFileToString } from "./readTxtFile";
+export { readTxtFileToArr, readTxtFileToString } from "./readTxtFile.ts";

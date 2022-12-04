@@ -1,12 +1,15 @@
-import * as fs from "fs";
+// import * as fs from "fs";
 
-const readTxtFile = (fileName: string): string[] => {
-  return fs
-    .readFileSync(fileName)
-    .toString("utf8")
-    .split("\n")
-    .filter((currString) => currString.length > 2);
-};
+// DENO
+import { readTxtFileToArr } from "../../modules/index.ts";
+
+// const readTxtFile = (fileName: string): string[] => {
+//   return fs
+//     .readFileSync(fileName)
+//     .toString("utf8")
+//     .split("\n")
+//     .filter((currString) => currString.length > 2);
+// };
 interface Present {
   l: number;
   w: number;
@@ -31,7 +34,7 @@ const totalRibbonEachPresent = (measurements: Present): number => {
 };
 
 const fileName: string = "input.txt";
-const fileTxt: string[] = readTxtFile(fileName);
+const fileTxt: string[] = readTxtFileToArr(fileName);
 const presents: Present[] = fileTxt.map((present) => getTheMeasure(present));
 
 let totalWrappingPaper: number = 0;

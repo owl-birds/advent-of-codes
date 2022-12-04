@@ -1,4 +1,4 @@
-import { readTxtFileToString } from "../../modules";
+import { readTxtFileToString } from "../../modules/index.ts";
 
 const fileName: string = "input.txt";
 const movesTxt: string = readTxtFileToString(fileName);
