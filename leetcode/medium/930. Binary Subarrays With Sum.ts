@@ -15,20 +15,35 @@ function numSubarraysWithSum(nums: number[], goal: number): number {
   //   }
   //   return count;
   /// BETTER ONE
+  // let count: number = 0;
+  // let curr_sum: number = 0;
+  // const prefix_sum: { [index: number]: number } = {};
+  // for (let i = 0; i < nums.length; i += 1) {
+  //   curr_sum += nums[i];
+  //   if (curr_sum === goal) count += 1;
+  //   if (prefix_sum[curr_sum - goal]) {
+  //     count += prefix_sum[curr_sum - goal];
+  //   }
+  //   if (!prefix_sum[curr_sum]) {
+  //     prefix_sum[curr_sum] = 1;
+  //     continue;
+  //   }
+  //   prefix_sum[curr_sum] += 1;
+  // }
+  // return count;
+
+  // another solution using sliding window
+  let start: number = 0;
+  let end: number = 0;
   let count: number = 0;
   let curr_sum: number = 0;
-  const prefix_sum: { [index: number]: number } = {};
-  for (let i = 0; i < nums.length; i += 1) {
-    curr_sum += nums[i];
+  while (end < nums.length) {
+    if (curr_sum < goal) curr_sum += nums[end];
+    end += 1;
     if (curr_sum === goal) count += 1;
-    if (prefix_sum[curr_sum - goal]) {
-      count += prefix_sum[curr_sum - goal];
-    }
-    if (!prefix_sum[curr_sum]) {
-      prefix_sum[curr_sum] = 1;
-      continue;
-    }
-    prefix_sum[curr_sum] += 1;
+    // while (curr_sum > goal) {
+
+    // }
   }
   return count;
-}
+} // [0,1,0,1,1,0]
