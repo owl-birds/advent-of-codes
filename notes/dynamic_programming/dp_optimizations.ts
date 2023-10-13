@@ -64,20 +64,25 @@ const min_cost = (step_prices: number[], max_step_per_move: number): number => {
     // const f_n = function_n(dp, step_prices[i - 1], i, max_step_per_move);
     // dp[i] = f_n;
   }
-  console.log("-----------");
-  //   console.log(step_prices);
-  console.log(dp);
-  //   //   console.log(
-  //   // `prices:[${step_prices}]-${step_prices.length}\ndp:[${dp}]-${dp.length}`
-  //   //   );
-  console.log("-----------");
-  if (dp.length == 2) {
-    return dp[1];
+  // console.log("-----------");
+  // console.log(step_prices, " steps : ", max_step_per_move);
+  // console.log(dp);
+  // //   //   console.log(
+  // //   // `prices:[${step_prices}]-${step_prices.length}\ndp:[${dp}]-${dp.length}`
+  // //   //   );
+  // console.log("-----------");
+  // if (step_prices.length == max_step_per_move) {
+  //   return dp[dp.length - 1];
+  // }
+  // console.log("111");
+  let result: number = Number.MAX_VALUE;
+  let idx = dp.length - 1;
+  while (idx > 0 && idx >= dp.length - max_step_per_move) {
+    if (result > dp[idx]) {
+      result = dp[idx];
+    }
+    idx -= 1;
   }
-  let result: number =
-    dp[dp.length - 1] < dp[dp.length - 2]
-      ? dp[dp.length - 1]
-      : dp[dp.length - 2];
   //   if (dp.length == 2) {
   //     return dp[1][0];
   //   }
@@ -129,7 +134,15 @@ const test_case_1 = [
 const test_case_2 = [10, 15, 20];
 const test_case_3 = [10];
 const test_case_4 = [10, 15];
+const test_case_5 = [10, 15, 20, 25, 1, 3, 4, 5];
+const test_case_6 = [10, 15, 20, 25, 1, 3, 4, 5, 1];
 console.log(min_cost(test_case_1, 2));
+console.log("------");
 console.log(min_cost(test_case_2, 2));
+console.log(min_cost(test_case_2, 3));
+console.log("------");
 console.log(min_cost(test_case_3, 2));
 console.log(min_cost(test_case_4, 2));
+console.log(min_cost(test_case_4, 3));
+console.log(min_cost(test_case_5, 4));
+console.log(min_cost(test_case_6, 4));
